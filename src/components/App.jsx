@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import '../index.css';
 
-const CONTACTS_KEY = 'contacts-key';
+// const CONTACTS_KEY = 'contacts-key';
 
 export const App = () => {
   // const [contacts, setContacts] = useState ([
@@ -14,49 +14,50 @@ export const App = () => {
   //   { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   // ]);
 
-  const [contacts, setContacts] = useState(() => {
-    return JSON.parse(localStorage.getItem(CONTACTS_KEY)) ?? [];
-  });
+  // const [contacts, setContacts] = useState(() => {
+  //   return JSON.parse(localStorage.getItem(CONTACTS_KEY)) ?? [];
+  // });
 
-  useEffect(() => {
-    localStorage.setItem(CONTACTS_KEY, JSON.stringify(contacts));
-  }, [contacts]);
+  // useEffect(() => {
+  //   localStorage.setItem(CONTACTS_KEY, JSON.stringify(contacts));
+  // }, [contacts]);
 
-  const [filter, setFilter] = useState('');
+  // const [filter, setFilter] = useState('');
+  /////////////////не прописала///////////////////////////
+  // const formSubmitHendler = contact => {
+  //   const searchName = contacts.find(item => item.name === contact.name);
+  //   if (searchName) {
+  //     alert(`${contact.name}  is already in contacts`);
+  //   } else {
+  //     setContacts(prevContacts => [...prevContacts, contact]);
+  //   }
+  // };
+  ////////////////////////////////////////
+  // const formSubmitFilter = event => {
+  //   setFilter(event.currentTarget.value);
+  // };
 
-  const formSubmitHendler = contact => {
-    const searchName = contacts.find(item => item.name === contact.name);
-    if (searchName) {
-      alert(`${contact.name}  is already in contacts`);
-    } else {
-      setContacts(prevContacts => [...prevContacts, contact]);
-    }
-  };
+  // const getSubmitContacts = () => {
+  //   return contacts.filter(({ name }) =>
+  //     name.toLowerCase().includes(filter.toLowerCase())
+  //   );
+  // };
 
-  const formSubmitFilter = event => {
-    setFilter(event.currentTarget.value);
-  };
-
-  const getSubmitContacts = () => {
-    return contacts.filter(({ name }) =>
-      name.toLowerCase().includes(filter.toLowerCase())
-    );
-  };
-
-  const handleDelete = id => {
-    setContacts(prevState => prevState.filter(contact => contact.id !== id));
-  };
+  // const handleDelete = id => {
+  //   setContacts(prevState => prevState.filter(contact => contact.id !== id));
+  // };
 
   return (
     <>
       <h1 className="title">Phonebook</h1>
-      <ContactForm onSubmit={formSubmitHendler} />
-
+      {/* <ContactForm onSubmit={formSubmitHendler} /> */}
+      <ContactForm />
       <h2 className="title">Contacts</h2>
-      <Filter filter={filter} formSubmitFilter={formSubmitFilter} />
+      {/* <Filter filter={filter} formSubmitFilter={formSubmitFilter} /> */}
+      <Filter />
       <ContactList
-        contactList={getSubmitContacts()}
-        handleDelete={handleDelete}
+      // contactList={getSubmitContacts()}
+      // handleDelete={handleDelete}
       />
     </>
   );
