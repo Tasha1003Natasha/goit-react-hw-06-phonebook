@@ -14,8 +14,8 @@ import {
 
 const persistConfig = {
   key: 'contacts',
-  version: 1,
   storage,
+  blacklist: ['filter'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
